@@ -11,15 +11,20 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
+const MessageSchema = z.object({
+  role: z.enum(['user', 'bot']),
+  text: z.string(),
+});
+
 const FoolishChatInputSchema = z.object({
-  question: z.string().describe('The user\'s question to the chatbot.'),
-  history: z.string().describe('The conversation history.'),
+  question: z.string().describe("The user's question to the chatbot."),
+  history: z.array(MessageSchema).describe('The conversation history.'),
 });
 
 export type FoolishChatInput = z.infer<typeof FoolishChatInputSchema>;
 
 const FoolishChatOutputSchema = z.object({
-  response: z.string().describe('The chatbot\'s foolish response.'),
+  response: z.string().describe("The chatbot's foolish response."),
 });
 
 export type FoolishChatOutput = z.infer<typeof FoolishChatOutputSchema>;
@@ -39,7 +44,9 @@ const prompt = ai.definePrompt({
   Keep your responses concise, between one and three sentences.
 
   Conversation History:
-  {{{history}}}
+  {{#each history}}
+  {{this.role}}: {{this.text}}
+  {{/each}}
 
   User Question:
   "{{{question}}}"

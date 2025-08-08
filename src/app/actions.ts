@@ -4,6 +4,10 @@ import { generateFoolishMessage } from '@/ai/flows/dynamic-foolish-message';
 import { generateFoolishProgressUpdate } from '@/ai/flows/foolish-progress-tracker';
 import { generateFoolishChatResponse as generateFoolishChatResponseFlow } from '@/ai/flows/foolish-chat-flow';
 
+type Message = {
+  role: 'user' | 'bot';
+  text: string;
+};
 
 export async function getFoolishMessage() {
   try {
@@ -28,7 +32,7 @@ export async function getProgressUpdate(disappointmentPoints: number, iqReductio
   }
 }
 
-export async function getFoolishChatResponse(question: string, history: string) {
+export async function getFoolishChatResponse(question: string, history: Message[]) {
   try {
     const result = await generateFoolishChatResponseFlow({ question, history });
     return result.response;

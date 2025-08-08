@@ -36,12 +36,12 @@ export function FoolishChat() {
     if (!input.trim()) return;
 
     const userMessage: Message = { role: 'user', text: input };
-    setMessages((prev) => [...prev, userMessage]);
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
     setInput('');
 
     startTransition(async () => {
-      const chatHistory = messages.map(m => `${m.role}: ${m.text}`).join('\n');
-      const response = await getFoolishChatResponse(input, chatHistory);
+      const response = await getFoolishChatResponse(input, messages);
       const botMessage: Message = { role: 'bot', text: response };
       setMessages((prev) => [...prev, botMessage]);
     });
