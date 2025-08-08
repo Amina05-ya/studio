@@ -21,9 +21,9 @@ export function Reward() {
           <CardDescription>Behold! The 'Aanamutta'.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center">
+          <div className="aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center border">
              <Image
-                src="https://placehold.co/600x400/e6e6fa/4b0082"
+                src="https://placehold.co/600x400/09090b/e2e8f0"
                 alt="The Legendary Aanamutta"
                 width={600}
                 height={400}

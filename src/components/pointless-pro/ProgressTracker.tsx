@@ -29,12 +29,12 @@ export function ProgressTracker({ disappointmentPoints, iqReductionScore }: Prog
   }, [disappointmentPoints, iqReductionScore]);
 
   return (
-    <Card className="w-full shadow-lg">
+    <Card className="w-full shadow-lg border-none bg-transparent">
       <CardHeader>
         <CardTitle className="font-headline text-2xl">Foolish Progress Tracker</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="text-center italic text-muted-foreground p-4 bg-muted/50 rounded-md">
+        <div className="text-center italic text-muted-foreground p-4 bg-muted/20 rounded-md">
           "{updateMessage}"
         </div>
         <div className="space-y-4">

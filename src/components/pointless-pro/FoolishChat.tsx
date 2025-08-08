@@ -4,7 +4,7 @@ import { useState, useTransition, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Bot, User, Loader2, MessageSquareDashed } from 'lucide-react';
+import { Bot, User, Loader2, X } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { getFoolishChatResponse } from '@/app/actions';
 
@@ -49,19 +49,19 @@ export function FoolishChat() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-6 right-6 z-50">
         <Button onClick={toggleChat} size="lg" className="rounded-full w-16 h-16 shadow-lg">
           <Bot className="h-8 w-8" />
         </Button>
       </div>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-4 z-50">
-          <Card className="w-96 shadow-2xl border-2 border-primary/50 animate-in fade-in-20 slide-in-from-bottom-5 duration-300">
+        <div className="fixed bottom-24 right-6 z-50">
+          <Card className="w-96 shadow-2xl border bg-background/90 backdrop-blur-sm animate-in fade-in-20 slide-in-from-bottom-5 duration-300">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="font-headline text-2xl">Foolish Chat</CardTitle>
               <Button variant="ghost" size="icon" onClick={toggleChat}>
-                <MessageSquareDashed className="h-6 w-6" />
+                <X className="h-6 w-6" />
               </Button>
             </CardHeader>
             <CardContent>

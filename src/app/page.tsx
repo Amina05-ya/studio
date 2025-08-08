@@ -86,7 +86,7 @@ export default function Home() {
         );
       case 'stage1':
         return (
-            <div className="py-8">
+            <div className="py-16">
                 <Stage 
                     stageNumber={1} 
                     title="The Illusion of Progress"
@@ -125,7 +125,7 @@ export default function Home() {
         );
       case 'stage2':
         return (
-            <div className="py-8">
+            <div className="py-16">
                 <Stage 
                     stageNumber={2} 
                     title="Advanced Waffling"
@@ -173,7 +173,7 @@ export default function Home() {
   return (
     <main>
       {gameState !== 'intro' && gameState !== 'finale' && (
-        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm shadow-sm">
+        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b">
             <div className="container mx-auto p-4">
                 <ProgressTracker 
                     disappointmentPoints={disappointmentPoints} 
