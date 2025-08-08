@@ -2,6 +2,8 @@
 
 import { generateFoolishMessage } from '@/ai/flows/dynamic-foolish-message';
 import { generateFoolishProgressUpdate } from '@/ai/flows/foolish-progress-tracker';
+import { generateFoolishChatResponse as generateFoolishChatResponseFlow } from '@/ai/flows/foolish-chat-flow';
+
 
 export async function getFoolishMessage() {
   try {
@@ -23,5 +25,15 @@ export async function getProgressUpdate(disappointmentPoints: number, iqReductio
   } catch(error) {
     console.error("Error fetching progress update:", error);
     return "Progress is an illusion anyway.";
+  }
+}
+
+export async function getFoolishChatResponse(question: string, history: string) {
+  try {
+    const result = await generateFoolishChatResponseFlow({ question, history });
+    return result.response;
+  } catch (error) {
+    console.error("Error in foolish chat:", error);
+    return "My brain just threw a 404 error. Try again... or don't.";
   }
 }

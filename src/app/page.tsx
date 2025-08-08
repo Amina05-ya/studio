@@ -9,6 +9,7 @@ import { Reward } from '@/components/pointless-pro/Reward';
 import { GrandFinale } from '@/components/pointless-pro/GrandFinale';
 import { Rocket, Loader2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { FoolishChat } from '@/components/pointless-pro/FoolishChat';
 
 type GameState = 'intro' | 'stage1' | 'quiz1' | 'reward1' | 'stage2' | 'quiz2' | 'finale';
 
@@ -181,7 +182,10 @@ export default function Home() {
             </div>
         </header>
       )}
-      {renderContent()}
+      <div className="container mx-auto">
+        {renderContent()}
+      </div>
+      <FoolishChat />
     </main>
   );
 }

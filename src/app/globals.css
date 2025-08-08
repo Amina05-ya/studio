@@ -4,28 +4,6 @@
 
 @layer base {
   :root {
-    --background: 240 67% 94%; /* light violet */
-    --foreground: 271 100% 15%; /* dark violet */
-    --card: 240 50% 98%;
-    --card-foreground: 271 100% 15%;
-    --popover: 240 50% 98%;
-    --popover-foreground: 271 100% 15%;
-    --primary: 271 100% 25%; /* deep violet */
-    --primary-foreground: 240 67% 94%; /* light violet */
-    --secondary: 271 80% 85%;
-    --secondary-foreground: 271 100% 25%;
-    --muted: 271 80% 90%;
-    --muted-foreground: 271 50% 45%;
-    --accent: 0 0% 0%; /* black */
-    --accent-foreground: 0 0% 100%; /* white */
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 271 60% 80%;
-    --input: 271 60% 85%;
-    --ring: 271 100% 25%; /* deep violet */
-    --radius: 0.5rem;
-  }
-  .dark {
     --background: 271 40% 10%;
     --foreground: 240 67% 94%;
     --card: 271 40% 12%;
@@ -45,6 +23,28 @@
     --border: 271 30% 20%;
     --input: 271 30% 20%;
     --ring: 240 67% 94%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 67% 94%; /* light violet */
+    --foreground: 271 100% 15%; /* dark violet */
+    --card: 240 50% 98%;
+    --card-foreground: 271 100% 15%;
+    --popover: 240 50% 98%;
+    --popover-foreground: 271 100% 15%;
+    --primary: 271 100% 25%; /* deep violet */
+    --primary-foreground: 240 67% 94%; /* light violet */
+    --secondary: 271 80% 85%;
+    --secondary-foreground: 271 100% 25%;
+    --muted: 271 80% 90%;
+    --muted-foreground: 271 50% 45%;
+    --accent: 0 0% 0%; /* black */
+    --accent-foreground: 0 0% 100%; /* white */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 271 60% 80%;
+    --input: 271 60% 85%;
+    --ring: 271 100% 25%; /* deep violet */
   }
 }
 
