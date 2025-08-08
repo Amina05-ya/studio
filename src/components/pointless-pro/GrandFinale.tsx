@@ -1,8 +1,17 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getFoolishMessage } from '@/app/actions';
+import { Skeleton } from '@/components/ui/skeleton';
 
-export async function GrandFinale() {
-  const foolishMessage = await getFoolishMessage();
+export function GrandFinale() {
+  const [foolishMessage, setFoolishMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    getFoolishMessage().then(setFoolishMessage);
+  }, []);
+
   return (
     <div className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in-50 duration-1000">
       <div className="w-full h-full absolute inset-0 z-0">
@@ -23,9 +32,13 @@ export async function GrandFinale() {
           Congratulations! You've successfully navigated the labyrinth of pointlessness. Your certificate of achievement is in the mail (it's not).
         </p>
         <div className="p-6 bg-accent text-accent-foreground rounded-lg shadow-2xl max-w-xl">
-          <p className="text-2xl font-semibold">
-            {foolishMessage}
-          </p>
+          {foolishMessage ? (
+            <p className="text-2xl font-semibold">
+              {foolishMessage}
+            </p>
+          ) : (
+            <Skeleton className="h-8 w-3/4 mx-auto" />
+          )}
         </div>
       </div>
     </div>
