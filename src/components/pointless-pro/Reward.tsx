@@ -1,17 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { getFoolishMessage } from '@/app/actions';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useToast } from '@/hooks/use-toast';
 
 export function Reward() {
   const [foolishMessage, setFoolishMessage] = useState<string | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     getFoolishMessage().then(setFoolishMessage);
-  }, []);
+    toast({
+        title: "Aanamutta Unlocked!",
+        description: "You have been awarded with an aanamutta!",
+    })
+  }, [toast]);
   
   return (
     <div className="flex flex-col items-center justify-center p-4">
@@ -22,13 +27,15 @@ export function Reward() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center border">
-             <Image
-                src="https://placehold.co/600x400/09090b/e2e8f0"
-                alt="The Legendary Aanamutta"
-                width={600}
-                height={400}
+             <video
+                src="/aanamutta.mp4"
+                width="600"
+                height="400"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover"
-                data-ai-hint="elephant egg"
               />
           </div>
           <div className="p-4 bg-muted/50 rounded-md">
