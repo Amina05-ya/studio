@@ -3,6 +3,7 @@
 import { generateFoolishMessage } from '@/ai/flows/dynamic-foolish-message';
 import { generateFoolishProgressUpdate } from '@/ai/flows/foolish-progress-tracker';
 import { generateFoolishChatResponse as generateFoolishChatResponseFlow } from '@/ai/flows/foolish-chat-flow';
+import { textToSpeech as textToSpeechFlow } from '@/ai/flows/text-to-speech-flow';
 
 type Message = {
   role: 'user' | 'bot';
@@ -40,4 +41,13 @@ export async function getFoolishChatResponse(question: string, history: Message[
     console.error("Error in foolish chat:", error);
     return "My brain just threw a 404 error. Try again... or don't.";
   }
+}
+
+export async function textToSpeech(text: string) {
+    try {
+        return await textToSpeechFlow(text);
+    } catch (error) {
+        console.error("Error in text to speech:", error);
+        return null;
+    }
 }
