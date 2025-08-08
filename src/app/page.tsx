@@ -184,8 +184,8 @@ export default function Home() {
       )}
       <div className="container mx-auto">
         {renderContent()}
+        {gameState !== 'intro' && gameState !== 'finale' && <FoolishChat />}
       </div>
-      <FoolishChat />
     </main>
   );
 }
