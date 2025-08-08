@@ -1,9 +1,17 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { getFoolishMessage } from '@/app/actions';
+import { Skeleton } from '@/components/ui/skeleton';
 
-export async function Reward() {
-  const foolishMessage = await getFoolishMessage();
+export function Reward() {
+  const [foolishMessage, setFoolishMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    getFoolishMessage().then(setFoolishMessage);
+  }, []);
   
   return (
     <div className="flex flex-col items-center justify-center p-4">
@@ -32,7 +40,11 @@ export async function Reward() {
             </p>
           </div>
            <div className="p-4 bg-secondary rounded-lg">
-             <p className="text-lg font-medium text-secondary-foreground">{foolishMessage} 🎉</p>
+             {foolishMessage ? (
+                <p className="text-lg font-medium text-secondary-foreground">{foolishMessage} 🎉</p>
+             ) : (
+                <Skeleton className="h-6 w-3/4 mx-auto" />
+             )}
            </div>
         </CardContent>
         <CardFooter>
