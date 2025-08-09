@@ -79,7 +79,7 @@ export function FoolishChat() {
                 >
                     {message.role === 'bot' && (
                     <div className="p-2 bg-secondary rounded-full h-fit">
-                        <Bot className="h-5 w-5 text-secondary-foreground" />
+                        <Bot className="h-5 w-5 text-primary" />
                     </div>
                     )}
                     <div
@@ -101,7 +101,7 @@ export function FoolishChat() {
                 {isPending && (
                     <div className="flex gap-3 justify-start">
                     <div className="p-2 bg-secondary rounded-full h-fit">
-                        <Bot className="h-5 w-5 text-secondary-foreground" />
+                        <Bot className="h-5 w-5 text-primary" />
                     </div>
                     <div className="max-w-[75%] rounded-lg px-4 py-2 bg-secondary text-secondary-foreground">
                         <Loader2 className="h-5 w-5 animate-spin" />

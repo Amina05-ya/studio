@@ -191,7 +191,7 @@ export default function Home() {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center text-center p-4">
                 <div className="animate-in fade-in-50 duration-1000">
-                    <h1 className="font-headline text-6xl md:text-8xl font-bold">Pointless Pro</h1>
+                    <h1 className="font-headline text-6xl md:text-8xl font-bold bg-gradient-to-br from-primary via-primary/80 to-white text-transparent bg-clip-text">Pointless Pro</h1>
                     <p className="mt-4 text-xl md:text-2xl text-muted-foreground max-w-2xl animate-in fade-in-50 delay-500 duration-1000">Welcome to Pointless Pro</p>
                 </div>
                 <div className="animate-in fade-in-0 delay-1000 duration-1000">
@@ -209,14 +209,14 @@ export default function Home() {
                 <h1 className="font-headline text-5xl font-bold">Course Stages</h1>
                 <p className="mt-2 text-muted-foreground">Select a stage to begin your descent into wisdom.</p>
               </header>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {stages.map((stage, index) => (
-                    <Card key={stage.id} className="shadow-lg hover:shadow-2xl transition-shadow cursor-pointer"
+                    <Card key={stage.id} className="shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all cursor-pointer group"
                         onClick={() => handleContinue(stage.id as GameState)}
                         style={{'--animation-delay': `${index * 100}ms`} as React.CSSProperties}
                     >
                         <CardHeader>
-                            <CardTitle className="font-headline text-2xl">{stage.title}</CardTitle>
+                            <CardTitle className="font-headline text-2xl group-hover:text-primary transition-colors">{stage.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="flex justify-end">
@@ -407,7 +407,7 @@ export default function Home() {
 
   return (
     <main>
-      {gameState !== 'intro' && gameState !== 'finale' && gameState !== 'stages' && (
+      {gameState !== 'intro' && gameState !== 'finale' && (
         <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b">
             <div className="container mx-auto p-4">
                 <ProgressTracker 
