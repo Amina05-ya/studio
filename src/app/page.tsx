@@ -10,7 +10,7 @@ import { GrandFinale } from '@/components/pointless-pro/GrandFinale';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FoolishChat } from '@/components/pointless-pro/FoolishChat';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type GameState = 'intro' | 'stages' | 'stage1' | 'quiz1' | 'reward1' | 'stage2' | 'quiz2' | 'reward2' | 'stage3' | 'quiz3' | 'reward3' | 'stage4' | 'quiz4' | 'reward4' | 'finale';
 

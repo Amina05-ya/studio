@@ -19,10 +19,13 @@ export function GrandFinale() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
-    getFoolishMessage().then(setFoolishMessage);
-    // Open the dialog after a short delay to appreciate the background
-    const timer = setTimeout(() => setIsDialogOpen(true), 1500);
-    return () => clearTimeout(timer);
+    async function loadMessage() {
+        const message = await getFoolishMessage();
+        setFoolishMessage(message);
+        // Open the dialog only after the message is fetched.
+        setIsDialogOpen(true);
+    }
+    loadMessage();
   }, []);
 
   return (
