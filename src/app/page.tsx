@@ -4,7 +4,7 @@ import { Suspense, useState, useTransition } from 'react';
 import { Button } from '@/components/ui/button';
 import { ProgressTracker } from '@/components/pointless-pro/ProgressTracker';
 import { Stage } from '@/components/pointless-pro/Stage';
-import { Quiz } from '@/components/pointless-pro/Quiz';
+import { Quiz, type QuizQuestion } from '@/components/pointless-pro/Quiz';
 import { Reward } from '@/components/pointless-pro/Reward';
 import { GrandFinale } from '@/components/pointless-pro/GrandFinale';
 import { Rocket, Loader2, ArrowRight } from 'lucide-react';
@@ -12,7 +12,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { FoolishChat } from '@/components/pointless-pro/FoolishChat';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-type GameState = 'intro' | 'stages' | 'stage1' | 'quiz1' | 'reward1' | 'stage2' | 'quiz2' | 'finale';
+type GameState = 'intro' | 'stages' | 'stage1' | 'quiz1' | 'reward1' | 'stage2' | 'quiz2' | 'reward2' | 'finale';
 
 const stageContent = {
   '1': {
@@ -35,6 +35,45 @@ const stageContent = {
     ),
     proTip: "A 'pro-tip' for debugging `NULL` pointers is to blame the hardware. It's never your fault. Your code is perfect. The computer is simply not enlightened enough to run it."
   }
+};
+
+const quizContent: { [key: string]: QuizQuestion[] } = {
+    '1': [
+        {
+            question: "Which color best represents the sound of a silent meeting?",
+            options: ['Transparent', 'The scent of beige', 'Loud quietness', 'All of the above'],
+        },
+        {
+            question: "What is the primary function of a rubber duck in software development?",
+            options: ['To absorb spilled coffee', 'To serve as a scapegoat for bugs', 'To provide moral support', 'To quack silently in judgment'],
+        },
+        {
+            question: "How do you measure project velocity?",
+            options: ['In units of existential dread per sprint', 'With a broken stopwatch', 'By the number of sighs in a stand-up meeting', 'Velocity is a corporate myth'],
+        },
+        {
+            question: "What does 'synergy' mean?",
+            options: ["It's the sound a fax machine makes", "The opposite of 'mynergy'", "A word to use when you have nothing to say", "The collective confusion of a team"],
+        }
+    ],
+    '2': [
+        {
+            question: "What is the optimal angle to lean back in your chair to signify deep thought?",
+            options: ['42 degrees', 'Pi radians', 'A perfect right angle to the floor', 'The angle of existential dread'],
+        },
+        {
+            question: "What is the correct way to handle a merge conflict?",
+            options: ['Declare your code the winner', 'Blame the intern', 'Delete the repository and start over', 'Take a nap'],
+        },
+        {
+            question: "What is the purpose of a loading spinner?",
+            options: ['To hypnotize the user into a state of compliance', 'To prove the application is actually doing something', 'To give you time to question your life choices', 'All of the above'],
+        },
+        {
+            question: "What is 'The Cloud'?",
+            options: ["A fluffy data center in the sky", "A place where your files go to disappear", "A series of tubes, but higher", "Just someone else's computer"],
+        }
+    ]
 };
 
 
@@ -157,8 +196,7 @@ export default function Home() {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <Quiz
-                    question="Which color best represents the sound of a silent meeting?"
-                    options={['Transparent', 'The scent of beige', 'Loud quietness', 'All of the above']}
+                    questions={quizContent['1']}
                     onSubmit={() => handleQuizSubmit('reward1')}
                 />
             </div>
@@ -196,10 +234,21 @@ export default function Home() {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <Quiz
-                    question="What is the optimal angle to lean back in your chair to signify deep thought?"
-                    options={['42 degrees', 'Pi radians', 'A perfect right angle to the floor', 'The angle of existential dread']}
-                    onSubmit={() => handleQuizSubmit('finale')}
+                    questions={quizContent['2']}
+                    onSubmit={() => handleQuizSubmit('reward2')}
                 />
+            </div>
+        );
+      case 'reward2':
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center">
+                <Suspense fallback={<RewardLoading />}>
+                  <Reward />
+                </Suspense>
+                <Button size="lg" className="mt-8" onClick={() => handleContinue('finale')} disabled={isPending}>
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Behold the Grand Finale
+                </Button>
             </div>
         );
       case 'finale':
