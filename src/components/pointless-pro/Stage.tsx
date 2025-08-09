@@ -5,7 +5,8 @@ import { ProTip } from './ProTip';
 import { Speaker, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { textToSpeech } from '@/app/actions';
-import { useState, useTransition, Children, isValidElement, cloneElement, Fragment } from 'react';
+import { useState, useTransition, Children, isValidElement } from 'react';
+import { Textarea } from '@/components/ui/textarea';
 
 type StageProps = {
   stageNumber: number;
@@ -78,9 +79,11 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
               <CardDescription>Jot down your epiphanies.</CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="p-4 bg-background border rounded-lg h-48 mb-4 flex items-center justify-center text-muted-foreground/50">
-                  <p>...or don't. It's all the same.</p>
-                </div>
+                <Textarea
+                  placeholder="Your brilliant, fleeting thoughts go here..."
+                  className="h-48 resize-none mb-4"
+                  defaultValue={`- A pointer is a variable that has seen too much.\n- Debugging is the process of removing bugs, so programming must be the process of putting them in.\n- Note to self: Redefine 'success' to 'successfully failed.'`}
+                />
                 <Button variant="secondary" className="w-full" onClick={handleReadAloud} disabled={isPending}>
                     {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Speaker className="mr-2 h-4 w-4"/>}
                     Read Aloud
