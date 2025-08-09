@@ -60,74 +60,74 @@ const stageContent = {
 const quizContent: { [key: string]: QuizQuestion[] } = {
     '1': [
         {
-            question: "Which color best represents the sound of a silent meeting?",
-            options: ['Transparent', 'The scent of beige', 'Loud quietness', 'All of the above'],
+            question: "What does the 'C' in 'C programming' stand for?",
+            options: ['Confusion', 'Chaos', 'Corporate-approved procrastination', 'All of the above'],
         },
         {
-            question: "What is the primary function of a rubber duck in software development?",
-            options: ['To absorb spilled coffee', 'To serve as a scapegoat for bugs', 'To provide moral support', 'To quack silently in judgment'],
+            question: "What is the most common bug in any program?",
+            options: ["A feature you didn't know you had", 'The user', 'A spider that crawled into the server rack', 'Monday mornings'],
         },
         {
-            question: "How do you measure project velocity?",
-            options: ['In units of existential dread per sprint', 'With a broken stopwatch', 'By the number of sighs in a stand-up meeting', 'Velocity is a corporate myth'],
+            question: "How do you declare a variable that holds your enthusiasm for this quiz?",
+            options: ['`int enthusiasm = 0;`', '`const char* will_to_live = NULL;`', '`bool has_given_up = true;`', '`void mind;`'],
         },
         {
-            question: "What does 'synergy' mean?",
-            options: ["It's the sound a fax machine makes", "The opposite of 'mynergy'", "A word to use when you have nothing to say", "The collective confusion of a team"],
+            question: "What is the correct way to end a line of code?",
+            options: ['With a dramatic sigh', 'By turning off the monitor', "With a semicolon, probably, who knows?", "You don't, it just keeps going"],
         }
     ],
     '2': [
         {
-            question: "What is the optimal angle to lean back in your chair to signify deep thought?",
-            options: ['42 degrees', 'Pi radians', 'A perfect right angle to the floor', 'The angle of existential dread'],
+            question: "What is a `NULL` pointer pointing to?",
+            options: ['The void', 'My motivation', 'The friends we made along the way', "The location of the office's good coffee"],
         },
         {
-            question: "What is the correct way to handle a merge conflict?",
-            options: ['Declare your code the winner', 'Blame the intern', 'Delete the repository and start over', 'Take a nap'],
+            question: "Dereferencing a `NULL` pointer causes a segmentation fault. This is:",
+            options: ['A feature, not a bug', 'The computer trying to have a philosophical debate', 'A reason to take an early lunch', 'All of the above'],
         },
         {
-            question: "What is the purpose of a loading spinner?",
-            options: ['To hypnotize the user into a state of compliance', 'To prove the application is actually doing something', 'To give you time to question your life choices', 'All of the above'],
+            question: "What is the difference between a pointer and a reference?",
+            options: ['One is pointless, the other is also pointless', "About 5 letters", "One requires a seance to debug, the other just a sacrifice", "You can't have a reference without a pointer, or is it the other way around?"],
         },
         {
-            question: "What is 'The Cloud'?",
-            options: ["A fluffy data center in the sky", "A place where your files go to disappear", "A series of tubes, but higher", "Just someone else's computer"],
+            question: "How do you properly allocate memory?",
+            options: ["Ask nicely", "Just keep opening Chrome tabs until your OS gives you some", "With `malloc()`, which stands for 'more agony, less logic, oh crap'", "Memory is a social construct"],
         }
     ],
     '3': [
         {
-            question: "What is the best variable name for a user's age?",
-            options: ['x', 'a', 'data', 'variable'],
+            question: "What is the ideal length for a variable name?",
+            options: ['`x`', '`a_very_long_and_descriptive_name_that_is_ultimately_misleading`', 'A single, unpronounceable emoji', 'The length of your patience: short'],
         },
         {
-            question: "How do you achieve maximum productivity?",
-            options: ['Attend more meetings', 'Drink coffee until you can see sounds', 'Automate your keyboard to type random characters', 'Redefine "done"'],
+            question: "Why do we use comments in code?",
+            options: ['To tell lies to future developers', 'To leave passive-aggressive notes for colleagues', 'To remind yourself what you were thinking before the coffee wore off', 'To hide the secrets of the universe'],
         },
         {
-            question: "What is the purpose of a status report?",
-            options: ['To practice creative writing', 'To justify your existence', 'To be ignored by management', 'All of the above'],
+            question: "The purpose of a ternary operator is to:",
+            options: ['Fit an entire mental breakdown into one line of code', 'Confuse the junior developer', 'Prove you are smarter than the compiler', 'Make your code look like modern art'],
         },
         {
-            question: "What is the main principle of Agile development?",
-            options: ['Changing requirements faster than you can code', 'Sprinting towards a cliff', 'Ceremony over substance', 'Blaming the process'],
+            question: "What is a 'code smell'?",
+            options: ["The aroma of burnt coffee near the server room", "The feeling you get on a Sunday night", "Code that works perfectly but you didn't write it", "When the code is so bad you can almost taste the bugs"],
         }
     ],
     '4': [
         {
-            question: "What is a quantum bit (qubit)?",
-            options: ['A very small argument', 'A ghost in the machine', 'A bit that is unsure of itself', 'A typo of "cubit"'],
+            question: "A qubit can be a 0, a 1, or both. This is useful for:",
+            options: ['Making decisions', 'Having an opinion', 'Being both right and wrong at the same time', 'Calculating how many meetings could have been an email'],
         },
         {
-            question: "What happens when you observe a quantum system?",
-            options: ['It gets shy and stops working', 'It collapses into a definite state of disappointment', 'The universe forks into two timelines', 'You get a headache'],
+            question: "What is 'quantum superposition'?",
+            options: ["The state of your project: both on schedule and hopelessly behind", "When you are simultaneously working and watching cat videos", "The reason the printer never works", "A very fancy nap"],
         },
         {
-            question: "What is quantum entanglement?",
-            options: ['When two developers are stuck on the same bug', 'A very complicated relationship status', 'Spooky action at a distance, like a manager checking your screen', 'A marketing term'],
+            question: "Quantum entanglement is also known as 'spooky action at a distance'. This is similar to:",
+            options: ["A manager watching your screen from across the office", "Thinking of a bug and having it appear on a different computer", "Getting an email notification on your phone, watch, and laptop at the same time", "All of the above"],
         },
         {
-            question: "How will quantum computing change the world?",
-            options: ['It will finally allow us to simulate a perfect cup of coffee', 'It will break all encryption, including your diary', 'It will create sentient paperclips', 'It won\'t, but it sounds cool'],
+            question: "How do you debug a quantum computer?",
+            options: ["You don't. You just vibe with it.", "By asking it very politely to work", "Flip a coin. If it lands on its side, the bug is fixed.", "Observe it, which changes the outcome, which fixes the problem. Or creates a new one."],
         }
     ]
 };
