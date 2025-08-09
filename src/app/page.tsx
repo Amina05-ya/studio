@@ -19,41 +19,41 @@ const stageContent = {
     title: 'C Basics: The Art of Pointless Pointers',
     content: (
         <>
-        <p className="mb-4">Welcome to the magical world of C, where pointers are less about memory addresses and more about pointing out the futility of your own existence. A pointer, or `*`, is like a cosmic signpost to nowhere. </p>
-        <p>Observe: `int* myPointer = NULL;`. This doesn't allocate memory; it allocates existential dread. By setting it to `NULL`, you are embracing the void. Congratulations, you have successfully done nothing, which is the first step to becoming a Pointless Pro.</p>
+        <p className="mb-4">Welcome, aspiring Pointless Pro, to the glorious world of C programming. Here, we don't write code; we craft elegant monuments to meaninglessness. Our first topic: the pointer. A pointer, denoted by an asterisk `*`, is not just a variable. It's a metaphysical arrow that points to the vast, beautiful nothingness of the `NULL` void.</p>
+        <p>Consider this masterpiece: `int* myPointer = NULL;`. With this single line, you haven't just declared a pointer; you've made a profound philosophical statement about the emptiness of existence. You have successfully pointed at nothing. This is the cornerstone of professional pointlessness.</p>
         </>
     ),
-    proTip: "To simulate a memory leak, just keep opening new tabs in your browser. Your computer's despair is a feature, not a bug."
+    proTip: "To truly master C, replace all your variable names with synonyms for 'void'. Your code will become a beautiful, unreadable poem."
   },
   '2': {
     title: 'Pointers and Nulls: Mastering the Void',
     content: (
         <>
-        <p className="mb-4">You have advanced to `NULL` pointers. `NULL` is not just a value; it's a state of mind. It's the Zen garden of C programming, where you can meditate on the absence of meaning. </p>
-        <p>Dereferencing a `NULL` pointer is the C equivalent of asking, "What is the sound of one hand clapping?" The answer is a segmentation fault. This is not an error; it's the universe's way of telling you to take a coffee break.</p>
+        <p className="mb-4">You have ascended to the next level of consciousness: the `NULL` pointer. `NULL` isn't a value; it's a destination. It's the digital equivalent of staring into the abyss, and the abyss staring back with a compiler error. This is where true enlightenment begins.</p>
+        <p>Attempting to dereference a `NULL` pointer is a sacred ritual. It's how your program achieves nirvana, gracefully exiting this mortal coil via a 'segmentation fault.' This isn't a crash; it's a form of digital transcendence. Your machine is thanking you for freeing it from the burden of execution.</p>
         </>
     ),
-    proTip: "A 'pro-tip' for debugging `NULL` pointers is to blame the hardware. It's never your fault. Your code is perfect. The computer is simply not enlightened enough to run it."
+    proTip: "Instead of debugging, try meditating. If the bug persists, you are not one with the machine. Try offering it a cup of herbal tea."
   },
   '3': {
-    title: 'Advanced Obfuscation: Writing Unreadable Code',
+    title: 'Advanced Obfuscation: The Da Vinci Code',
     content: (
       <>
-        <p className="mb-4">Welcome to advanced obfuscation. The goal is to write code that even you can't understand a week later. This ensures job security. If nobody can figure out what your code does, nobody can replace you.</p>
-        <p>Use single-letter variable names, nested ternary operators, and macros that redefine basic keywords. For example: `#define if(x) if(!(x))`. This will make debugging a spiritual journey.</p>
+        <p className="mb-4">Welcome to the art of writing code that is not only functional but also completely impenetrable. Your goal is to write software that works, but that no one, including yourself, can ever understand again. This is the secret to eternal job security.</p>
+        <p>Employ creative techniques like naming your variables after obscure constellations. Use bitwise shifts to perform simple addition. Write your functions recursively, even for loops. For example: `#define TRUE FALSE`. Your code will be less of a program and more of a cryptic crossword puzzle.</p>
       </>
     ),
-    proTip: "Document your code with comments that are either wrong or completely irrelevant. For example: `// This loop calculates the meaning of life.`"
+    proTip: "Your commit messages should be in haiku. 'Server is now on fire. It is snowing on Mount Fuji.'"
   },
   '4': {
-    title: 'Quantum Computing: It\'s All in Your Head',
+    title: 'Quantum Computing: Spooky Action at a Coffee Shop',
     content: (
         <>
-        <p className="mb-4">Quantum computing is simple. A qubit can be a 0, a 1, or both at the same time. This is called superposition. Just like how you can be both productive and procrastinating by watching this course.</p>
-        <p>To create a quantum computer, simply believe your regular computer is a quantum computer. Your belief will cause a superposition of states, making your code both work and not work simultaneously. This is the essence of modern software.</p>
+        <p className="mb-4">Quantum computing is easy. Everything you know is wrong, but also right. A qubit is a bit that's been to a liberal arts college. It can be a 0, a 1, or both, all while complaining about its student loans. This is called superposition.</p>
+        <p>To build a quantum computer, simply close your eyes and believe your laptop is one. This act of observation will collapse its wave function into a state of pure, unadulterated confusion. Your code will now simultaneously compile and fail, which is the definition of success in the quantum realm.</p>
         </>
     ),
-    proTip: "If your quantum code doesn't work, you're probably observing it too closely. Try to run your program without looking at the screen."
+    proTip: "If you encounter a quantum bug, it's not your fault. The bug exists in a parallel universe. Blame that universe."
     }
 };
 
@@ -61,73 +61,73 @@ const quizContent: { [key: string]: QuizQuestion[] } = {
     '1': [
         {
             question: "What does the 'C' in 'C programming' stand for?",
-            options: ['Confusion', 'Chaos', 'Corporate-approved procrastination', 'All of the above'],
+            options: ['Clowns', 'Cthulhu', 'Commitment issues', 'All of the above'],
         },
         {
-            question: "What is the most common bug in any program?",
-            options: ["A feature you didn't know you had", 'The user', 'A spider that crawled into the server rack', 'Monday mornings'],
+            question: "What is the primary function of a rubber duck in programming?",
+            options: ["To absorb tears", "To act as a scapegoat for bugs", "To float in the bathtub of despair", "To provide moral support"],
         },
         {
-            question: "How do you declare a variable that holds your enthusiasm for this quiz?",
-            options: ['`int enthusiasm = 0;`', '`const char* will_to_live = NULL;`', '`bool has_given_up = true;`', '`void mind;`'],
+            question: "How do you achieve a state of 'flow' while coding?",
+            options: ['By spilling coffee on your keyboard', 'By staring blankly at the screen for three hours', 'By opening 42 Stack Overflow tabs', 'Flow is a myth, like clean code'],
         },
         {
-            question: "What is the correct way to end a line of code?",
-            options: ['With a dramatic sigh', 'By turning off the monitor', "With a semicolon, probably, who knows?", "You don't, it just keeps going"],
+            question: "What is the best way to name a variable?",
+            options: ['An inside joke no one else gets', "Your pet's name", "`a`", "`variable`"],
         }
     ],
     '2': [
         {
-            question: "What is a `NULL` pointer pointing to?",
-            options: ['The void', 'My motivation', 'The friends we made along the way', "The location of the office's good coffee"],
+            question: "What is a `NULL` pointer's favorite movie?",
+            options: ['The Nothing', 'Gone with the Wind', 'The Void', "Dude, Where's My Car?"],
         },
         {
-            question: "Dereferencing a `NULL` pointer causes a segmentation fault. This is:",
-            options: ['A feature, not a bug', 'The computer trying to have a philosophical debate', 'A reason to take an early lunch', 'All of the above'],
+            question: "A segmentation fault is the computer's way of saying:",
+            options: ["'I've had enough of your nonsense'", "'Please, make it stop'", "'I'm going on strike'", "'All of the above'"],
         },
         {
-            question: "What is the difference between a pointer and a reference?",
-            options: ['One is pointless, the other is also pointless', "About 5 letters", "One requires a seance to debug, the other just a sacrifice", "You can't have a reference without a pointer, or is it the other way around?"],
+            question: "What's the difference between a programmer and a pizza?",
+            options: ["A pizza can feed a family of four", "A pizza doesn't cry when the code doesn't work", "A pizza has fewer bugs", "I don't know, but now I'm hungry"],
         },
         {
-            question: "How do you properly allocate memory?",
-            options: ["Ask nicely", "Just keep opening Chrome tabs until your OS gives you some", "With `malloc()`, which stands for 'more agony, less logic, oh crap'", "Memory is a social construct"],
+            question: "How do you center a div?",
+            options: ["You pray to the CSS gods", "You sacrifice a goat", "You ask your mom", "You just don't"],
         }
     ],
     '3': [
         {
-            question: "What is the ideal length for a variable name?",
-            options: ['`x`', '`a_very_long_and_descriptive_name_that_is_ultimately_misleading`', 'A single, unpronounceable emoji', 'The length of your patience: short'],
+            question: "What is the main purpose of writing unreadable code?",
+            options: ['Job security', 'To feel superior to others', 'To create a modern art masterpiece', 'To confuse future you'],
         },
         {
             question: "Why do we use comments in code?",
-            options: ['To tell lies to future developers', 'To leave passive-aggressive notes for colleagues', 'To remind yourself what you were thinking before the coffee wore off', 'To hide the secrets of the universe'],
+            options: ['To write poems about our feelings', 'To leave passive-aggressive notes for coworkers', 'To remind ourselves what we were thinking before the existential dread set in', 'To hide treasure maps'],
         },
         {
             question: "The purpose of a ternary operator is to:",
-            options: ['Fit an entire mental breakdown into one line of code', 'Confuse the junior developer', 'Prove you are smarter than the compiler', 'Make your code look like modern art'],
+            options: ['Fit an entire emotional rollercoaster into a single line', 'Confuse the intern', 'Prove your intellectual dominance', 'Make your code look like an alien language'],
         },
         {
             question: "What is a 'code smell'?",
-            options: ["The aroma of burnt coffee near the server room", "The feeling you get on a Sunday night", "Code that works perfectly but you didn't write it", "When the code is so bad you can almost taste the bugs"],
+            options: ["The scent of burnt-out CPUs", "The feeling you get on Monday mornings", "Code that works but you didn't write it", "When the code is so bad you can almost hear it crying"],
         }
     ],
     '4': [
         {
-            question: "A qubit can be a 0, a 1, or both. This is useful for:",
-            options: ['Making decisions', 'Having an opinion', 'Being both right and wrong at the same time', 'Calculating how many meetings could have been an email'],
+            question: "A qubit's favorite music genre is:",
+            options: ['Quantum Pop', 'Electronica', 'Anything but binary beats', 'Silence'],
         },
         {
             question: "What is 'quantum superposition'?",
-            options: ["The state of your project: both on schedule and hopelessly behind", "When you are simultaneously working and watching cat videos", "The reason the printer never works", "A very fancy nap"],
+            options: ["The state of being both employed and looking for a new job", "When you are simultaneously drinking coffee and spilling it", "The reason your socks disappear in the laundry", "A very expensive nap"],
         },
         {
             question: "Quantum entanglement is also known as 'spooky action at a distance'. This is similar to:",
-            options: ["A manager watching your screen from across the office", "Thinking of a bug and having it appear on a different computer", "Getting an email notification on your phone, watch, and laptop at the same time", "All of the above"],
+            options: ["Your boss knowing you're on social media without looking at your screen", "Thinking of a bug and it appearing on your coworker's machine", "Getting a notification on your phone, watch, laptop, and smart fridge at the same time", "All of the above"],
         },
         {
             question: "How do you debug a quantum computer?",
-            options: ["You don't. You just vibe with it.", "By asking it very politely to work", "Flip a coin. If it lands on its side, the bug is fixed.", "Observe it, which changes the outcome, which fixes the problem. Or creates a new one."],
+            options: ["You don't. You vibe with it.", "You offer it a sacrifice", "You flip a coin. If it lands on its edge, the bug is gone.", "You observe it, which changes the outcome, which fixes the problem. Or creates three new ones."],
         }
     ]
 };

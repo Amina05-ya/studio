@@ -5,7 +5,7 @@ import { ProTip } from './ProTip';
 import { Speaker, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { textToSpeech } from '@/app/actions';
-import { useState, useTransition, Children, isValidElement } from 'react';
+import { useState, useTransition, Children, isValidElement, cloneElement, Fragment } from 'react';
 
 type StageProps = {
   stageNumber: number;
@@ -16,15 +16,15 @@ type StageProps = {
 
 // Helper function to extract text from React nodes
 function getNodeText(node: React.ReactNode): string {
-    if (typeof node === 'string') return node;
-    if (typeof node === 'number') return String(node);
-    if (Array.isArray(node)) return node.map(getNodeText).join('');
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(getNodeText).join(' ');
 
-    if (isValidElement(node) && node.props.children) {
-        return Children.map(node.props.children, getNodeText).join('');
-    }
-    
-    return '';
+  if (isValidElement(node) && node.props.children) {
+    return Children.map(node.props.children, getNodeText).join(' ');
+  }
+  
+  return '';
 }
 
 export function Stage({ stageNumber, title, content, proTip }: StageProps) {
