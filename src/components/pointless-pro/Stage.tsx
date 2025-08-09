@@ -64,7 +64,7 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
 
       <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-2 space-y-6">
-          <Card className="shadow-lg">
+          <Card className="shadow-lg bg-white">
             <CardContent className="p-8 text-lg leading-relaxed">
               {content}
             </CardContent>
@@ -73,7 +73,7 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
         </div>
 
         <div className="md:col-span-1">
-          <Card className="shadow-lg sticky top-28 bg-secondary">
+          <Card className="shadow-lg sticky top-28 bg-white">
             <CardHeader>
               <CardTitle className="font-headline">Interactive Notes</CardTitle>
               <CardDescription>Jot down your epiphanies.</CardDescription>

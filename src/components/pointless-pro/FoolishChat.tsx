@@ -86,7 +86,7 @@ export function FoolishChat() {
                     className={`max-w-[75%] rounded-lg px-4 py-2 ${
                         message.role === 'user'
                         ? 'bg-primary text-primary-foreground'
-                        : 'bg-secondary text-secondary-foreground'
+                        : 'bg-white text-foreground'
                     }`}
                     >
                     <p className="text-sm">{message.text}</p>
@@ -103,7 +103,7 @@ export function FoolishChat() {
                     <div className="p-2 bg-secondary rounded-full h-fit">
                         <Bot className="h-5 w-5 text-primary" />
                     </div>
-                    <div className="max-w-[75%] rounded-lg px-4 py-2 bg-secondary text-secondary-foreground">
+                    <div className="max-w-[75%] rounded-lg px-4 py-2 bg-white text-foreground">
                         <Loader2 className="h-5 w-5 animate-spin" />
                     </div>
                     </div>
@@ -116,6 +116,7 @@ export function FoolishChat() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask something pointless..."
                 disabled={isPending}
+                className="bg-white"
             />
             <Button type="submit" disabled={isPending}>
                 Send

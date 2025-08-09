@@ -33,7 +33,7 @@ export function GrandFinale() {
       <div className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in-50 duration-1000">
         <div className="w-full h-full absolute inset-0 z-0">
           <Image
-              src="https://placehold.co/1920x1080/09090b/e2e8f0"
+              src="https://placehold.co/1920x1080/f3e8ff/4c1d95"
               alt="Ironic grand finale"
               fill
               objectFit="cover"

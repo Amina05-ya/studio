@@ -132,6 +132,12 @@ const quizContent: { [key: string]: QuizQuestion[] } = {
     ]
 };
 
+const stageColors = [
+    "bg-violet-100",
+    "bg-rose-100",
+    "bg-sky-100",
+    "bg-emerald-100",
+]
 
 const stages = [
   { id: 'stage1', title: 'Stage 1: C Basics' },
@@ -211,7 +217,7 @@ export default function Home() {
               </header>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {stages.map((stage, index) => (
-                    <Card key={stage.id} className="shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all cursor-pointer group transform hover:-translate-y-1"
+                    <Card key={stage.id} className={`${stageColors[index]} shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all cursor-pointer group transform hover:-translate-y-1`}
                         onClick={() => handleContinue(stage.id as GameState)}
                         style={{'--animation-delay': `${index * 100}ms`} as React.CSSProperties}
                     >

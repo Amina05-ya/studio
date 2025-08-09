@@ -39,7 +39,7 @@ export function ProgressTracker({ disappointmentPoints, iqReductionScore }: Prog
                     "{updateMessage}"
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="flex flex-col gap-2 p-4 bg-card rounded-lg border">
+                    <div className="flex flex-col gap-2 p-4 bg-white rounded-lg border">
                         <div className="flex justify-between items-center">
                             <span className="font-medium flex items-center gap-2 text-card-foreground">
                                 <Award className="h-5 w-5 text-primary" />
@@ -50,7 +50,7 @@ export function ProgressTracker({ disappointmentPoints, iqReductionScore }: Prog
                         <Progress value={disappointmentPoints} max={100} />
                         <p className="text-xs text-muted-foreground text-right">The higher, the better... or worse?</p>
                     </div>
-                     <div className="flex flex-col gap-2 p-4 bg-card rounded-lg border">
+                     <div className="flex flex-col gap-2 p-4 bg-white rounded-lg border">
                         <div className="flex justify-between items-center">
                             <span className="font-medium flex items-center gap-2 text-card-foreground">
                                 <BrainCircuit className="h-5 w-5 text-primary" />
