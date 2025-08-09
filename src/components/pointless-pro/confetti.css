@@ -1,0 +1,28 @@
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.confetti {
+  position: absolute;
+  top: -20px;
+  left: var(--x-start);
+  width: 10px;
+  height: 10px;
+  background-color: var(--bg);
+  animation: fall var(--duration) var(--delay) linear infinite;
+  transform: rotate(var(--rotation-start));
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(var(--y-end)) translateX(calc(var(--x-end) - var(--x-start))) rotate(var(--rotation-end));
+    opacity: 0;
+  }
+}

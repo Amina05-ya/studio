@@ -5,9 +5,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { getFoolishMessage } from '@/app/actions';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
+import { Confetti } from './Confetti';
 
 export function Reward() {
   const [foolishMessage, setFoolishMessage] = useState<string | null>(null);
+  const [showConfetti, setShowConfetti] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -15,12 +17,14 @@ export function Reward() {
     toast({
         title: "Aanamutta Unlocked!",
         description: "You have been awarded with an aanamutta!",
-    })
+    });
+    setShowConfetti(true);
   }, [toast]);
   
   return (
-    <div className="flex flex-col items-center justify-center p-4">
-      <Card className="w-full max-w-2xl text-center shadow-xl animate-in fade-in-50 zoom-in-90 duration-500">
+    <div className="flex flex-col items-center justify-center p-4 relative">
+      {showConfetti && <Confetti />}
+      <Card className="w-full max-w-2xl text-center shadow-xl animate-in fade-in-50 zoom-in-90 duration-500 z-10">
         <CardHeader>
           <CardTitle className="font-headline text-4xl">A Reward of Unspeakable Value</CardTitle>
           <CardDescription>Behold! The 'Aanamutta'.</CardDescription>

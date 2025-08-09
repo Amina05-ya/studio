@@ -5,7 +5,7 @@ import { ProTip } from './ProTip';
 import { Speaker, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { textToSpeech } from '@/app/actions';
-import { useState, useTransition } from 'react';
+import { useState, useTransition, Children, isValidElement } from 'react';
 
 type StageProps = {
   stageNumber: number;
@@ -14,6 +14,18 @@ type StageProps = {
   proTip: string;
 };
 
+// Helper function to extract text from React nodes
+function getNodeText(node: React.ReactNode): string {
+    if (typeof node === 'string') return node;
+    if (typeof node === 'number') return String(node);
+    if (Array.isArray(node)) return node.map(getNodeText).join('');
+
+    if (isValidElement(node) && node.props.children) {
+        return Children.map(node.props.children, getNodeText).join('');
+    }
+    
+    return '';
+}
 
 export function Stage({ stageNumber, title, content, proTip }: StageProps) {
     const { toast } = useToast();
@@ -21,7 +33,7 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
     const [isPending, startTransition] = useTransition();
 
     const handleReadAloud = () => {
-        const textContent = (content as React.ReactElement)?.props.children.map((p: any) => p.props.children).join(' ');
+        const textContent = getNodeText(content);
         
         startTransition(async () => {
             const result = await textToSpeech(textContent);
@@ -35,8 +47,8 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
                 })
             } else {
                 toast({
-                    title: "Feature Not Implemented",
-                    description: "Reading this aloud would be far too productive. We can't have that.",
+                    title: "Audio Error",
+                    description: "Couldn't generate the audio. The silence is probably more profound anyway.",
                     variant: "destructive"
                 })
             }
