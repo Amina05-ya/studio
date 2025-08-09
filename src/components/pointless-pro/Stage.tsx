@@ -73,7 +73,7 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
         </div>
 
         <div className="md:col-span-1">
-          <Card className="shadow-lg sticky top-28">
+          <Card className="shadow-lg sticky top-28 bg-secondary">
             <CardHeader>
               <CardTitle className="font-headline">Interactive Notes</CardTitle>
               <CardDescription>Jot down your epiphanies.</CardDescription>
@@ -81,10 +81,10 @@ export function Stage({ stageNumber, title, content, proTip }: StageProps) {
             <CardContent>
                 <Textarea
                   placeholder="Your brilliant, fleeting thoughts go here..."
-                  className="h-48 resize-none mb-4"
+                  className="h-48 resize-none mb-4 bg-background"
                   defaultValue={`- A pointer is a variable that has seen too much.\n- Debugging is the process of removing bugs, so programming must be the process of putting them in.\n- Note to self: Redefine 'success' to 'successfully failed.'`}
                 />
-                <Button variant="secondary" className="w-full" onClick={handleReadAloud} disabled={isPending}>
+                <Button className="w-full" onClick={handleReadAloud} disabled={isPending}>
                     {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Speaker className="mr-2 h-4 w-4"/>}
                     Read Aloud
                 </Button>

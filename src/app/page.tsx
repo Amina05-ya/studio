@@ -191,11 +191,11 @@ export default function Home() {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center text-center p-4">
                 <div className="animate-in fade-in-50 duration-1000">
-                    <h1 className="font-headline text-6xl md:text-8xl font-bold bg-gradient-to-br from-primary via-primary/80 to-white text-transparent bg-clip-text">Pointless Pro</h1>
+                    <h1 className="font-headline text-6xl md:text-8xl font-bold bg-gradient-to-br from-primary via-primary/80 to-foreground text-transparent bg-clip-text">Pointless Pro</h1>
                     <p className="mt-4 text-xl md:text-2xl text-muted-foreground max-w-2xl animate-in fade-in-50 delay-500 duration-1000">Welcome to Pointless Pro</p>
                 </div>
                 <div className="animate-in fade-in-0 delay-1000 duration-1000">
-                <Button size="lg" className="mt-8" onClick={() => handleContinue('stages')}>
+                <Button size="lg" className="mt-8 shadow-lg hover:shadow-primary/30 transition-shadow" onClick={() => handleContinue('stages')}>
                     Start Learning
                     <ArrowRight className="ml-2 h-5 w-5"/>
                 </Button>
@@ -211,7 +211,7 @@ export default function Home() {
               </header>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {stages.map((stage, index) => (
-                    <Card key={stage.id} className="shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all cursor-pointer group"
+                    <Card key={stage.id} className="shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all cursor-pointer group transform hover:-translate-y-1"
                         onClick={() => handleContinue(stage.id as GameState)}
                         style={{'--animation-delay': `${index * 100}ms`} as React.CSSProperties}
                     >
