@@ -7,12 +7,12 @@ import { Stage } from '@/components/pointless-pro/Stage';
 import { Quiz, type QuizQuestion } from '@/components/pointless-pro/Quiz';
 import { Reward } from '@/components/pointless-pro/Reward';
 import { GrandFinale } from '@/components/pointless-pro/GrandFinale';
-import { Rocket, Loader2, ArrowRight } from 'lucide-react';
+import { ArrowRight, Loader2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FoolishChat } from '@/components/pointless-pro/FoolishChat';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-type GameState = 'intro' | 'stages' | 'stage1' | 'quiz1' | 'reward1' | 'stage2' | 'quiz2' | 'reward2' | 'finale';
+type GameState = 'intro' | 'stages' | 'stage1' | 'quiz1' | 'reward1' | 'stage2' | 'quiz2' | 'reward2' | 'stage3' | 'quiz3' | 'reward3' | 'stage4' | 'quiz4' | 'reward4' | 'finale';
 
 const stageContent = {
   '1': {
@@ -34,7 +34,27 @@ const stageContent = {
         </>
     ),
     proTip: "A 'pro-tip' for debugging `NULL` pointers is to blame the hardware. It's never your fault. Your code is perfect. The computer is simply not enlightened enough to run it."
-  }
+  },
+  '3': {
+    title: 'Advanced Obfuscation: Writing Unreadable Code',
+    content: (
+      <>
+        <p className="mb-4">Welcome to advanced obfuscation. The goal is to write code that even you can't understand a week later. This ensures job security. If nobody can figure out what your code does, nobody can replace you.</p>
+        <p>Use single-letter variable names, nested ternary operators, and macros that redefine basic keywords. For example: `#define if(x) if(!(x))`. This will make debugging a spiritual journey.</p>
+      </>
+    ),
+    proTip: "Document your code with comments that are either wrong or completely irrelevant. For example: `// This loop calculates the meaning of life.`"
+  },
+  '4': {
+    title: 'Quantum Computing: It\'s All in Your Head',
+    content: (
+        <>
+        <p className="mb-4">Quantum computing is simple. A qubit can be a 0, a 1, or both at the same time. This is called superposition. Just like how you can be both productive and procrastinating by watching this course.</p>
+        <p>To create a quantum computer, simply believe your regular computer is a quantum computer. Your belief will cause a superposition of states, making your code both work and not work simultaneously. This is the essence of modern software.</p>
+        </>
+    ),
+    proTip: "If your quantum code doesn't work, you're probably observing it too closely. Try to run your program without looking at the screen."
+    }
 };
 
 const quizContent: { [key: string]: QuizQuestion[] } = {
@@ -73,6 +93,42 @@ const quizContent: { [key: string]: QuizQuestion[] } = {
             question: "What is 'The Cloud'?",
             options: ["A fluffy data center in the sky", "A place where your files go to disappear", "A series of tubes, but higher", "Just someone else's computer"],
         }
+    ],
+    '3': [
+        {
+            question: "What is the best variable name for a user's age?",
+            options: ['x', 'a', 'data', 'variable'],
+        },
+        {
+            question: "How do you achieve maximum productivity?",
+            options: ['Attend more meetings', 'Drink coffee until you can see sounds', 'Automate your keyboard to type random characters', 'Redefine "done"'],
+        },
+        {
+            question: "What is the purpose of a status report?",
+            options: ['To practice creative writing', 'To justify your existence', 'To be ignored by management', 'All of the above'],
+        },
+        {
+            question: "What is the main principle of Agile development?",
+            options: ['Changing requirements faster than you can code', 'Sprinting towards a cliff', 'Ceremony over substance', 'Blaming the process'],
+        }
+    ],
+    '4': [
+        {
+            question: "What is a quantum bit (qubit)?",
+            options: ['A very small argument', 'A ghost in the machine', 'A bit that is unsure of itself', 'A typo of "cubit"'],
+        },
+        {
+            question: "What happens when you observe a quantum system?",
+            options: ['It gets shy and stops working', 'It collapses into a definite state of disappointment', 'The universe forks into two timelines', 'You get a headache'],
+        },
+        {
+            question: "What is quantum entanglement?",
+            options: ['When two developers are stuck on the same bug', 'A very complicated relationship status', 'Spooky action at a distance, like a manager checking your screen', 'A marketing term'],
+        },
+        {
+            question: "How will quantum computing change the world?",
+            options: ['It will finally allow us to simulate a perfect cup of coffee', 'It will break all encryption, including your diary', 'It will create sentient paperclips', 'It won\'t, but it sounds cool'],
+        }
     ]
 };
 
@@ -80,10 +136,8 @@ const quizContent: { [key: string]: QuizQuestion[] } = {
 const stages = [
   { id: 'stage1', title: 'Stage 1: C Basics' },
   { id: 'stage2', title: 'Stage 2: Pointers and Nulls' },
-  { id: 'stage3', title: 'Stage 3: Advanced Obfuscation', locked: true },
-  { id: 'stage4', title: 'Stage 4: Quantum Computing (in Theory)', locked: true },
-  { id: 'stage5', title: 'Stage 5: Writing Compilers for Fun', locked: true },
-  { id: 'stage6', title: 'Stage 6: Achieving Singularity', locked: true },
+  { id: 'stage3', title: 'Stage 3: Advanced Obfuscation' },
+  { id: 'stage4', title: 'Stage 4: Quantum Computing' },
 ];
 
 
@@ -155,19 +209,18 @@ export default function Home() {
                 <h1 className="font-headline text-5xl font-bold">Course Stages</h1>
                 <p className="mt-2 text-muted-foreground">Select a stage to begin your descent into wisdom.</p>
               </header>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {stages.map((stage, index) => (
-                    <Card key={stage.id} className={`shadow-lg hover:shadow-2xl transition-shadow ${stage.locked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-                        onClick={() => !stage.locked && handleContinue(stage.id as GameState)}
+                    <Card key={stage.id} className="shadow-lg hover:shadow-2xl transition-shadow cursor-pointer"
+                        onClick={() => handleContinue(stage.id as GameState)}
                         style={{'--animation-delay': `${index * 100}ms`} as React.CSSProperties}
                     >
                         <CardHeader>
                             <CardTitle className="font-headline text-2xl">{stage.title}</CardTitle>
-                            {stage.locked && <CardDescription>Locked</CardDescription>}
                         </CardHeader>
                         <CardContent>
                             <div className="flex justify-end">
-                                {!stage.locked && <Button variant="secondary">Begin</Button>}
+                                <Button variant="secondary">Begin</Button>
                             </div>
                         </CardContent>
                     </Card>
@@ -225,7 +278,7 @@ export default function Home() {
                 <div className="text-center mt-8">
                     <Button size="lg" onClick={() => handleContinue('quiz2')} disabled={isPending}>
                       {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                      Take the Final, Futile Quiz
+                      Take the Next Futile Quiz
                     </Button>
                 </div>
             </div>
@@ -240,6 +293,82 @@ export default function Home() {
             </div>
         );
       case 'reward2':
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center">
+                <Suspense fallback={<RewardLoading />}>
+                  <Reward />
+                </Suspense>
+                <Button size="lg" className="mt-8" onClick={() => handleContinue('stage3')} disabled={isPending}>
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Continue to Even More Pointlessness
+                </Button>
+            </div>
+        );
+       case 'stage3':
+        return (
+            <div className="py-16">
+                <Stage 
+                    stageNumber={3} 
+                    title={stageContent['3'].title}
+                    content={stageContent['3'].content}
+                    proTip={stageContent['3'].proTip}
+                />
+                <div className="text-center mt-8">
+                    <Button size="lg" onClick={() => handleContinue('quiz3')} disabled={isPending}>
+                      {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                      Take Another Futile Quiz
+                    </Button>
+                </div>
+            </div>
+        );
+      case 'quiz3':
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <Quiz
+                    questions={quizContent['3']}
+                    onSubmit={() => handleQuizSubmit('reward3')}
+                />
+            </div>
+        );
+      case 'reward3':
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center">
+                <Suspense fallback={<RewardLoading />}>
+                  <Reward />
+                </Suspense>
+                <Button size="lg" className="mt-8" onClick={() => handleContinue('stage4')} disabled={isPending}>
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Proceed to the Final Frontier
+                </Button>
+            </div>
+        );
+      case 'stage4':
+        return (
+            <div className="py-16">
+                <Stage 
+                    stageNumber={4} 
+                    title={stageContent['4'].title}
+                    content={stageContent['4'].content}
+                    proTip={stageContent['4'].proTip}
+                />
+                <div className="text-center mt-8">
+                    <Button size="lg" onClick={() => handleContinue('quiz4')} disabled={isPending}>
+                      {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                      Take the Final, Final, Futile Quiz
+                    </Button>
+                </div>
+            </div>
+        );
+      case 'quiz4':
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <Quiz
+                    questions={quizContent['4']}
+                    onSubmit={() => handleQuizSubmit('reward4')}
+                />
+            </div>
+        );
+      case 'reward4':
         return (
             <div className="min-h-screen flex flex-col items-center justify-center">
                 <Suspense fallback={<RewardLoading />}>
